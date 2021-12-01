@@ -25,15 +25,15 @@ class DialogWindow(QMainWindow):
         self.password = QLineEdit()
         self.password.setPlaceholderText("Password")
 
-        button = QPushButton("Press Me!")
-        button.clicked.connect(lambda: self.the_button_was_clicked())
+        self.button = QPushButton("Press Me!")
+        self.button.clicked.connect(lambda: self.the_button_was_clicked())
 
         layout = QVBoxLayout()
         widgets = [
             self.label,
             self.login,
             self.password,
-            button
+            self.button
         ]
 
         for w in widgets:
