@@ -8,8 +8,6 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-
-# Subclass QMainWindow to customize your application's main window
 class DialogWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -49,9 +47,13 @@ class DialogWindow(QMainWindow):
         print(login)
         print(password)
 
-        window1 = MainWindow()
+        window1 = MainWindow(self)
         window1.show()
-
         self.close()
+
+
+
+
+
 
 

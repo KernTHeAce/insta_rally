@@ -9,9 +9,10 @@ class InstaHandler:
     def __init__(self, login, password, link):
         self.login = login
         self.password = password
-        self.post_link = link
+
         self.bot = Bot()
         self.log_in()
+        self.link = self.bot.get_media_id_from_link(link)
 
     def delete_cookie(self):
         """
@@ -30,8 +31,11 @@ class InstaHandler:
         return self.bot.get_user_followers(self.login) # Список подписчиков
 
     def get_like(self):
-        media_pk = self.bot.get_media_id_from_link(self.post_link)
-        return self.bot.get_media_likers(media_pk)
+        return self.bot.get_media_likers(self.link)
+
+    def get_comments(self):
+        comments = self.bot.get_media_comments_all(self.link)
+
 
 
 #
